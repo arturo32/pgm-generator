@@ -10,11 +10,6 @@
     // Suppose the 2D Array to be converted to Image is as given below 
     int image[t][t]; 
     
-    int v[30];
-    for (int i = 0; i < 30; ++i)
-    {
-      v[i] = fibo(i);
-    }
 
     // Forming a white square inside a black square
     // Play here to form your own images!
