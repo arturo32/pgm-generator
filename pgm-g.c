@@ -1,20 +1,21 @@
    #include <stdio.h>
+  
+   #define MAGIC_NUMBER "P2"
+   #define MAX_VALUE 255
+   #define IMAGE_SIZE 1000
 
    int main(){
 
     int i, j, temp = 0;
-
-    // Size of the square image (pixels)
-    int t = 1000; 
   
     // Suppose the 2D Array to be converted to Image is as given below 
-    int image[t][t]; 
+    int image[IMAGE_SIZE][IMAGE_SIZE]; 
     
 
     // Forming a white square inside a black square
     // Play here to form your own images!
-    for (int i = 0; i < t; ++i){
-      for (int j = 0; j < t; ++j){
+    for (int i = 0; i < IMAGE_SIZE; ++i){
+      for (int j = 0; j < IMAGE_SIZE; ++j){
         if(i>250 && j >250 && i<750 && j <750){
           image[i][j] = 255;
         }
@@ -31,17 +32,17 @@
     pgmimg = fopen("myimg.pgm", "wb"); 
   
     // Writing Magic Number to the File 
-    fprintf(pgmimg, "P2\n");  
+    fprintf(pgmimg, "%s\n", MAGIC_NUMBER);  
   
-    // Writing t and t 
-    fprintf(pgmimg, "%d %d\n", t, t);  
+    // Writing the size of the image 
+    fprintf(pgmimg, "%d %d\n", IMAGE_SIZE, IMAGE_SIZE);  
   
     // Writing the maximum gray value 
-    fprintf(pgmimg, "255\n");
+    fprintf(pgmimg, "%d\n", MAX_VALUE);
 
     int count = 0; 
-    for (i = 0; i < t; i++) { 
-        for (j = 0; j < t; j++) { 
+    for (i = 0; i < IMAGE_SIZE; i++) { 
+        for (j = 0; j < IMAGE_SIZE; j++) { 
             temp = image[i][j]; 
   
             // Writing the gray values in the 2D array to the file 
